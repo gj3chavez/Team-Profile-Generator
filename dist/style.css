@@ -1,0 +1,15 @@
+body {
+    font-family: 'Harry Potter', sans-serif;
+}
+
+.container{
+    margin: 100px auto;
+    justify-content: space-evenly;
+    display: flex;
+}
+
+.card{
+    text-align: left;
+    display: grid;
+}
+ 
