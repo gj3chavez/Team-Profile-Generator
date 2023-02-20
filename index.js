@@ -97,7 +97,7 @@ const addManager = () => {
             addIntern();
             break;
         default:
-            writeToFile('./')
+            writeToFile('')
     }
 }
     ])

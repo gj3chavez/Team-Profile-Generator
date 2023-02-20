@@ -1,7 +1,9 @@
 body {
     font-family: 'Harry Potter', sans-serif;
 }
-
+header{
+    color: #4d9600;
+}
 .container{
     margin: 100px auto;
     justify-content: space-evenly;
@@ -11,5 +13,11 @@ body {
 .card{
     text-align: left;
     display: grid;
+    margin: 10px;
+    box-shadow: 5px 2px 8px;
+   
 }
- 
+
+.card-body{
+   background-color: #c6e0aa;
+}
