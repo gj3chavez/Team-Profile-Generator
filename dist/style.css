@@ -4,6 +4,10 @@ body {
 header{
     color: #4d9600;
 }
+
+.navbar{
+    background-color: bisque;
+}
 .container{
     margin: 100px auto;
     justify-content: space-evenly;
