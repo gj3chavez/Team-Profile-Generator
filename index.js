@@ -10,7 +10,7 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 
-const team = [];
+let team = [];
 
 const addManager = () => {
     inquirer.prompt([
@@ -101,8 +101,8 @@ const addManager = () => {
         default:
             writeToFile('dist/index.html', generateHTML(team))
     }
-},
-  
+});
+} 
 
 
 
@@ -187,7 +187,7 @@ const addEngineer = () => {
         default:
             writeToFile('dist/index.html', generateHTML(team))
     }
-},
+}),
   
 }
 
@@ -273,16 +273,17 @@ const addIntern = () => {
         default:
             writeToFile('dist/index.html', generateHTML(team))
     }
-}
+});
   
 }
 
 addManager();
 
-function writeToFile(filename, data, (err)=>{
+function writeToFile(filename, data) {
+    fs.writeFile(filename,data,(err)=>{
     if (err) throw err;
     console.log('Your profile has been created succesfully!')
-})
+});
 
-}
+};
 
