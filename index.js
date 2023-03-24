@@ -1,7 +1,8 @@
-const generateHTML = require('./src/template');
 
 const inquirer = require('inquirer');
 const fs = require('fs');
+
+const generateHTML = require('./src/template');
 
 // import classes
 const Employee = require('./lib/Employee');
@@ -54,8 +55,8 @@ const addManager = () => {
             type: 'input',
             message: "Please enter the manager's email?",
             validate: email => {
-                valid = /^\W+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-                if (valid) {
+                
+                if (email) {
                     return true;
                 } else {
                     console.log("Please enter an email!")
@@ -87,7 +88,7 @@ const addManager = () => {
     }
 ])
 
-.then(managerAnswers) => {
+.then((managerAnswers) => {
 
     const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber)
     team.push(manager)
@@ -99,7 +100,7 @@ const addManager = () => {
             addIntern();
             break;
         default:
-            writeToFile('dist/index.html', generateHTML(team))
+            writeToFile('', generateHTML(team))
     }
 });
 } 
@@ -143,8 +144,8 @@ const addEngineer = () => {
             type: 'input',
             message: "Please enter the engineer's email?",
             validate: email => {
-                valid = /^\W+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-                if (valid) {
+        
+                if (email) {
                     return true;
                 } else {
                     console.log("Please enter an email!")
@@ -173,7 +174,7 @@ const addEngineer = () => {
     }
     ])
 
-.then(engineerAnswers) => {
+.then((engineerAnswers)=>{
 
     const engineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github)
     team.push(engineer)
@@ -187,12 +188,12 @@ const addEngineer = () => {
         default:
             writeToFile('dist/index.html', generateHTML(team))
     }
-}),
+})
   
 }
 
 
-const addIntern = () => {
+const addIntern =() => {
     inquirer.prompt([
         {
             name: 'name',
@@ -229,8 +230,8 @@ const addIntern = () => {
             type: 'input',
             message: "Please enter the intern's email?",
             validate: email => {
-                valid = /^\W+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-                if (valid) {
+                
+                if (email) {
                     return true;
                 } else {
                     console.log("Please enter an email!")
@@ -259,7 +260,7 @@ const addIntern = () => {
     }
     ])
 
-.then(internAnswers) => {
+.then((internAnswers) =>{
 
     const intern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school)
     team.push(intern)
@@ -271,7 +272,7 @@ const addIntern = () => {
             addIntern();
             break;
         default:
-            writeToFile('dist/index.html', generateHTML(team))
+            writeToFile("dist/index.html", generateHTML(team))
     }
 });
   
@@ -279,11 +280,13 @@ const addIntern = () => {
 
 addManager();
 
-function writeToFile(filename, data) {
-    fs.writeFile(filename,data,(err)=>{
+function writeToFile(fileName,data) {
+    fs.writeFile(fileName, data,(err)=> {
     if (err) throw err;
+    
     console.log('Your profile has been created succesfully!')
 });
-
 };
+
+
 
