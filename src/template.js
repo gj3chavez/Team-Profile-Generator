@@ -2,8 +2,8 @@ const Manager = require('../lib/Manager');
 const Engineer = require('../lib/Engineer');
 const Intern = require('../lib/Intern');
 const Employee = require('../lib/Employee');
-function generateHTML (team) {
- `
+function generateHTML (employees) {
+ const template =`
 
 <!DOCTYPE html> 
 <html lang="en">
@@ -30,7 +30,7 @@ function generateHTML (team) {
     <main>
         <div class="container">
             <div class = "row justify-content-center"></div>
-            ${generateCards(team)}
+            ${generateCards(employees)}
           </div> 
         </div>
     </main>
@@ -42,93 +42,68 @@ return template;
 }
 
 
-function generateManagerCard (team){
-  let managerCard = '';
-  for (let i = 0; i < Manager.length; i++){
-    if(Manager[i].getRole() === 'Manager') {
-      managerCard +=
+
+const createManagerCard = (manager) =>
    
   `<div class="card" style="width: 18rem;">
 <div class="card-body">
-  <h5 class="card-title">${Manager[i].getName()}/h5>
-  <p class="card-text"><i class="fa-solid fa-users"></i> ${Manager[i].getRole()}</p>
+  <h5 class="card-title">${manager.name}</h5>
+  <p class="card-text"><i class="fa-solid fa-users"></i> ${manager.getRole()}</p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${Manager[i].getId()}</li>
-  <li class="list-group-item">Email: <a href="mailto:${Manager[i].getEmail()}">${Manager[i].getEmail()}</a><li>
-  <li class="list-group-item">${Manager[i].getOfficeNumber()}</li>
+  <li class="list-group-item">ID: ${manager.id}</li>
+  <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a><li>
+  <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
 </ul>
 </div>`
-}
-}
-return managerCard;
-}
 
-function generateEngineerCard (team){
-  let engineerCard = '';
-  for (let i = 0; i < Engineer.length; i++){
-    if(Manager[i].getRole() === 'Engineer') {
-      engineerCard +=
+const createEngineerCard = (engineer) =>
+
   `<div class="card" style="width: 18rem;">
 <div class="card-body">
-  <h5 class="card-title">${Enginner[i].getName()}/h5>
-  <p class="card-text"><i class="fa-solid fa-users"></i> ${Engineer[i].getRole()}</p>
+  <h5 class="card-title">${enginner.getName()}</h5>
+  <p class="card-text"><i class="fa-solid fa-users"></i> ${engineer.getRole()}</p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${Engineer[i].getId()}</li>
-  <li class="list-group-item">Email:<a href="mailto:${Engineer[i].getEmail()}">${Engineer[i].getEmail()}</a><li>
-  <li class="list-group-item"><a href="https://github.com/${Engineer[i].getGithub()}" target="_blank"
-  rel="noopener noreferrer">${Engineer[i].getGithub()}</a></li>
+  <li class="list-group-item">ID: ${engineer.getId()}</li>
+  <li class="list-group-item">Email:<a href="mailto: ${engineer.getEmail()}">${engineer.getEmail()}</a><li>
+  <li class="list-group-item">Github:<a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
 </ul>
 </div>`
-}
-}
-return engineerCard;
-}
 
 
-function generateInternCard (team){
-  let internCard = '';
-  for (let i = 0; i < Intern.length; i++){
-    if(Intern[i].getRole() === 'Intern') {
-      internCard +=
+const createInternCard = (Intern) =>
+
   `<div class="card" style="width: 18rem;">
 <div class="card-body">
-  <h5 class="card-title">${Intern[i].getName()}/h5>
-  <p class="card-text"><i class="fa-solid fa-users"></i> ${Intern[i].getRole()}</p>
+  <h5 class="card-title">${Intern.getName()}</h5>
+  <p class="card-text"><i class="fa-solid fa-users"></i> ${Intern.getRole()}</p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${Intern[i].getId()}</li>
-  <li class="list-group-item">Email:<a href="mailto:${Intern[i].getEmail()}">${Intern[i].getEmail()}</a><li>
-  <li class="list-group-item">${Intern[i].getSchool()}</li>
+  <li class="list-group-item">ID: ${Intern.getId()}</li>
+  <li class="list-group-item">Email:<a href="mailto:${Intern.getEmail()}">${Intern.getEmail()}</a><li>
+  <li class="list-group-item">School: ${Intern.getSchool()}</li>
 </ul>
 </div>`
-}
-}
-return internCard;
-}
 
-
-// function createCards(team) {
-//   let cards = []
-//   for (let i = 0; i < team.length; i++) {
-//     const thisEmployee = team[i];
-//     switch (thisEmployee.getRole()) {
-//       case 'Manager':
-//         const manager = new Manager(thisEmployee.id, thisEmployee.name, thisEmployee.email, thisEmployee.getOfficeNumber);
-//         cards.push(createManagerCard(manager));
-//         break;
-//       case 'Engineer':
-//         const engineer = new Enginner(thisEmployee.id, thisEmployee.name, thisEmployee.email, thisEmployee.github);
-//         cards.push(createEngineerCard(engineer));
-//         break;
-//       case 'Intern':
-//         const intern = new Intern(thisEmployee.id, thisEmployee.name, thisEmployee.email, thisEmployee.school);
-//         cards.push(createInternCard(intern));
-//         break;
-//     }
-//   }
-//   return cards.join(``)
-// }
+function generateCards(employees) {
+  let cards = []
+  for (let i = 0; i < employees.length; i++) {
+    const thisEmployee = employees[i];
+    console.log(thisEmployee)
+    switch (thisEmployee.getRole()) {
+      case 'Manager':
+        cards.push(createManagerCard(thisEmployee));
+        break;
+      case 'Engineer':
+        cards.push(createEngineerCard(thisEmployee));
+        break;
+      case 'Intern':
+        cards.push(createInternCard(thisEmployee));
+        break;
+    }
+  }
+  return cards.join(``)
+}
 
 module.exports = generateHTML;

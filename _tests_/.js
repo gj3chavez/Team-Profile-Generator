@@ -3,7 +3,7 @@ const Engineer = require("../lib/Engineer");
 
 describe("Engineer", () => {
     describe("engineer object", () => {
-      it("creates an engineer object with their respective name, id and email", () => {
+      it("creates an engineer object with their respective name, id, email and github", () => {
         const engineer = new Engineer('Giana Raa', 100, 'giana@gmail.com','gianaraa');
         
       

@@ -5,21 +5,24 @@ const fs = require('fs');
 const generateHTML = require('./src/template');
 
 // import classes
-const Employee = require('./lib/Employee');
+// const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
 
-let team = [];
+
+let employees = [];
+
 
 const addManager = () => {
     inquirer.prompt([
         {
-            name: 'role',
+            name: 'addTeam',
             type: 'confirm',
-            message: `Welcome to the Team Profile!`
+            message: 'Welcome to the Team Profile!',
         },
+      
         {
             name: 'name',
             type: 'input',
@@ -84,14 +87,15 @@ const addManager = () => {
         type: 'list',
         name: 'addMember',
         message: 'What type of employee would you like to add?',
-        choices: ['Enginner', 'Intern', 'N/A'],
+        choices: ['Engineer', 'Intern', 'N/A'],
     }
 ])
 
 .then((managerAnswers) => {
 
-    const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber)
-    team.push(manager)
+    const manager = new Manager(managerAnswers.id, managerAnswers.name, managerAnswers.email, managerAnswers.officeNumber)
+    employees.push(manager)
+   
     switch(managerAnswers.addMember){
         case 'Engineer':
             addEngineer();
@@ -100,7 +104,7 @@ const addManager = () => {
             addIntern();
             break;
         default:
-            writeToFile('', generateHTML(team))
+            writeToFile('dist/index.html', generateHTML(employees))
     }
 });
 } 
@@ -161,7 +165,7 @@ const addEngineer = () => {
                 if (!githubInput) {
                     return true;
                 } else {
-                    console.log("Please enter manager's office number!");
+                    console.log("Please enter engineer's github!");
                 
                 }
                 }
@@ -170,14 +174,14 @@ const addEngineer = () => {
         type: 'list',
         name: 'addMember',
         message: 'What type of employee would you like to add?',
-        choices: ['Enginner', 'Intern', 'N/A'],
+        choices: ['Engineer', 'Intern', 'N/A'],
     }
     ])
 
 .then((engineerAnswers)=>{
 
     const engineer = new Engineer(engineerAnswers.name, engineerAnswers.id, engineerAnswers.email, engineerAnswers.github)
-    team.push(engineer)
+    employees.push(engineer)
     switch(engineerAnswers.addMember){
         case 'Engineer':
             addEngineer();
@@ -186,7 +190,7 @@ const addEngineer = () => {
             addIntern();
             break;
         default:
-            writeToFile('dist/index.html', generateHTML(team))
+            writeToFile('dist/index.html', generateHTML(employees))
     }
 })
   
@@ -240,11 +244,11 @@ const addIntern =() => {
             }
         },
         {
-            name: 'github',
+            name: 'school',
             type: 'input',
             message: "What is the intern's School?",
-            validate: githubInput => {
-                if (!githubInput) {
+            validate: schoolInput => {
+                if (schoolInput) {
                     return true;
                 } else {
                     console.log("Please enter intern's school!");
@@ -256,14 +260,14 @@ const addIntern =() => {
         type: 'list',
         name: 'addMember',
         message: 'What type of employee would you like to add?',
-        choices: ['Enginner', 'Intern', 'N/A'],
+        choices: ['Engineer', 'Intern', 'N/A'],
     }
     ])
 
 .then((internAnswers) =>{
 
     const intern = new Intern(internAnswers.name, internAnswers.id, internAnswers.email, internAnswers.school)
-    team.push(intern)
+    employees.push(intern)
     switch(internAnswers.addMember){
         case 'Engineer':
             addEngineer();
@@ -272,7 +276,7 @@ const addIntern =() => {
             addIntern();
             break;
         default:
-            writeToFile("dist/index.html", generateHTML(team))
+            writeToFile("dist/index.html", generateHTML(employees))
     }
 });
   
@@ -288,5 +292,13 @@ function writeToFile(fileName,data) {
 });
 };
 
+// addManager()
+// .then(addEmployee)
+// .then(employees =>{
+//     return generateHTML(employees);
+// })
+// .catch(err => {
+//     console.log(err);
+// });
 
 
