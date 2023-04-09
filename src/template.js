@@ -57,17 +57,17 @@ const createManagerCard = (manager) =>
 </ul>
 </div>`
 
-const createEngineerCard = (engineer) =>
+const createEngineerCard = (Engineer) =>
 
   `<div class="card" style="width: 18rem;">
 <div class="card-body">
-  <h5 class="card-title">${enginner.getName()}</h5>
-  <p class="card-text"><i class="fa-solid fa-users"></i> ${engineer.getRole()}</p>
+  <h5 class="card-title">${Engineer.getName()}</h5>
+  <p class="card-text"><i class="fa-solid fa-users"></i> ${Engineer.getRole()}</p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${engineer.getId()}</li>
-  <li class="list-group-item">Email:<a href="mailto: ${engineer.getEmail()}">${engineer.getEmail()}</a><li>
-  <li class="list-group-item">Github:<a href="https://github.com/${engineer.getGithub()}">${engineer.getGithub()}</a></li>
+  <li class="list-group-item">ID: ${Engineer.getId()}</li>
+  <li class="list-group-item">Email:<a href="mailto: ${Engineer.getEmail()}">${Engineer.getEmail()}</a><li>
+  <li class="list-group-item">Github:<a href="https://github.com/${Engineer.getGithub()}">${Engineer.getGithub()}</a></li>
 </ul>
 </div>`
 
@@ -90,7 +90,7 @@ function generateCards(employees) {
   let cards = []
   for (let i = 0; i < employees.length; i++) {
     const thisEmployee = employees[i];
-    console.log(thisEmployee)
+    // console.log(thisEmployee)
     switch (thisEmployee.getRole()) {
       case 'Manager':
         cards.push(createManagerCard(thisEmployee));

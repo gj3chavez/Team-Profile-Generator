@@ -5,7 +5,7 @@ const fs = require('fs');
 const generateHTML = require('./src/template');
 
 // import classes
-// const Employee = require('./lib/Employee');
+const Employee = require('./lib/Employee');
 const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
@@ -20,7 +20,10 @@ const addManager = () => {
         {
             name: 'addTeam',
             type: 'confirm',
-            message: 'Welcome to the Team Profile!',
+            message: `
+        ====================
+            Welcome to the Team Profile!
+        ====================`
         },
       
         {
@@ -162,10 +165,10 @@ const addEngineer = () => {
             type: 'input',
             message: "What is the engineer's Github?",
             validate: githubInput => {
-                if (!githubInput) {
+                if (githubInput) {
                     return true;
                 } else {
-                    console.log("Please enter engineer's github!");
+                    console.log("Please enter engineer's github!")
                 
                 }
                 }
@@ -292,13 +295,5 @@ function writeToFile(fileName,data) {
 });
 };
 
-// addManager()
-// .then(addEmployee)
-// .then(employees =>{
-//     return generateHTML(employees);
-// })
-// .catch(err => {
-//     console.log(err);
-// });
 
 
