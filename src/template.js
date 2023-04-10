@@ -21,9 +21,9 @@ function generateHTML (employees) {
     <body>
         <header>
         
-            <nav class="navbar bg-body-tertiary">
-                <div class="container-fluid justify-content-center" id="card-body">
-                    <span class="navbar-brand mb-0 h1">Team Profile</span>
+            <nav class="navbar">
+                <div class="container-fluid justify-content-center">
+                    <h1>Team Profile</h1>
                 </div>
             </nav>
         </header>
@@ -60,7 +60,7 @@ const createManagerCard = (manager) =>
 const createEngineerCard = (Engineer) =>
 
   `<div class="card" style="width: 18rem;">
-<div class="card-body">
+<div class="card-body1">
   <h5 class="card-title">${Engineer.getName()}</h5>
   <p class="card-text"><i class="fa-solid fa-users"></i> ${Engineer.getRole()}</p>
 </div>
@@ -75,7 +75,7 @@ const createEngineerCard = (Engineer) =>
 const createInternCard = (Intern) =>
 
   `<div class="card" style="width: 18rem;">
-<div class="card-body">
+<div class="card-body2">
   <h5 class="card-title">${Intern.getName()}</h5>
   <p class="card-text"><i class="fa-solid fa-users"></i> ${Intern.getRole()}</p>
 </div>

@@ -15,8 +15,18 @@ header h1{
     padding: 20px;
     margin: 20px;
     border-radius: 10px;
+    box-shadow: 5px 2px 8px; 
+}
+.container-fluid{
+    margin: 10px auto;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: antiquewhite;
+    border-radius: 10px;
     box-shadow: 5px 2px 8px;
-    
+    margin-right: 20px;
+    padding: 20px;
 }
 #profile{
     background-color: #cbbb8a;
@@ -50,26 +60,26 @@ header h1{
 }
 
 .card-body{
-   background-color: #79c274;
+   background-color: #79c274 !important;
 }
 
 .card-body1{
-    background-color: #e1a46c;
+    background-color: #e1a46c !important;
     padding: 16px;
  }
 
  .card-body2{
-    background-color: #3cadea;
+    background-color: #3cadea !important;
     padding: 16px;
  }
 
  .card-body3{
-    background-color: #74c2bf;
+    background-color: #74c2bf !important;
     padding: 16px;
  }
 
  .card-body4{
-    background-color: #bf8bc7;
+    background-color: #bf8bc7 !important;
     padding: 16px;
  }
  
