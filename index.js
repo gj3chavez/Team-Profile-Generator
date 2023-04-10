@@ -22,7 +22,7 @@ const addManager = () => {
             type: 'confirm',
             message: `
         ====================
-            Welcome to the Team Profile!
+            Welcome to the Team Profile! Would you like to add a team member?
         ====================`
         },
       
@@ -96,7 +96,7 @@ const addManager = () => {
 
 .then((managerAnswers) => {
 
-    const manager = new Manager(managerAnswers.id, managerAnswers.name, managerAnswers.email, managerAnswers.officeNumber)
+    const manager = new Manager(managerAnswers.name, managerAnswers.id, managerAnswers.email, managerAnswers.officeNumber)
     employees.push(manager)
    
     switch(managerAnswers.addMember){

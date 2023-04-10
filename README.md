@@ -10,7 +10,7 @@
    The app starts with a welcome message. Then the user is presented with a set of questions and choices that requiere their input. 
    After choosing a license, the respective license badge will be at the top of the Readme. 
 
-   Link to demo video: https://drive.google.com/file/d/1ju9EZBplnk39GQ38BQcUoWi1BlpQsfXR/view
+   Link to demo video: https://drive.google.com/file/d/15yOjgih0KzixoJ-MB1Awv-9fgFQq1Zxz/view
 
 ## Table of Contents
   - [Description](#Description)

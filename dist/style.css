@@ -1,38 +1,76 @@
 body {
     font-family: 'Philosopher', sans-serif;
-    background-color: #f6eed7!important
+    background-color: #eed588!important
 }
-header{
-    color: #4d9600;
+
+header h1{
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px 10px;
+}
+.navbar{
+    background-color: #cbbb8a;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 8px;
+    
+}
+#profile{
+    background-color: #cbbb8a;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 2px 8px;
+    
 }
 
 .container{
     margin: 100px auto;
     justify-content: space-evenly;
     display: flex;
+    flex-wrap: wrap;
 }
 
 .card{
     text-align: left;
-    display: grid;
+    display: flex;
+   
     margin: 10px;
     box-shadow: 5px 2px 8px;
-   
+}
+.card-title{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 10px 10px;
 }
 
 .card-body{
-   background-color: #d9ca97;
-}
-.container-fluid{
-    background-color: #e7d28d;
-    font-family: 'Philosopher', sans-serif;
-    padding: 20px;
+   background-color: #79c274;
 }
 
-.h1{
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    font-weight: bold;
-    font-size:xx-large
-}
+.card-body1{
+    background-color: #e1a46c;
+    padding: 16px;
+ }
+
+ .card-body2{
+    background-color: #3cadea;
+    padding: 16px;
+ }
+
+ .card-body3{
+    background-color: #74c2bf;
+    padding: 16px;
+ }
+
+ .card-body4{
+    background-color: #bf8bc7;
+    padding: 16px;
+ }
+ 
 

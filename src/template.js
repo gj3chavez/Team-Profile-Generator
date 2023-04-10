@@ -47,11 +47,11 @@ const createManagerCard = (manager) =>
    
   `<div class="card" style="width: 18rem;">
 <div class="card-body">
-  <h5 class="card-title">${manager.name}</h5>
+  <h5 class="card-title">${manager.getName()}</h5>
   <p class="card-text"><i class="fa-solid fa-users"></i> ${manager.getRole()}</p>
 </div>
 <ul class="list-group list-group-flush">
-  <li class="list-group-item">ID: ${manager.id}</li>
+  <li class="list-group-item">ID: ${manager.getId()}</li>
   <li class="list-group-item">Email: <a href="mailto:${manager.email}">${manager.email}</a><li>
   <li class="list-group-item">Office number: ${manager.getOfficeNumber()}</li>
 </ul>

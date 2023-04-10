@@ -4,10 +4,10 @@ const Manager = require("../lib/Manager");
 describe("Manager", () => {
     describe("manager object", () => {
       it("creates an manager object with their respective name, id and email", () => {
-        const manager = new Manager('Giana Raa', 123, 'giana@gmail.com',123);
+        const manager = new Manager("Giana Raa", 123, 'giana@gmail.com',123);
         
        
-        expect(manager.name).toBe("Giana Raa");
+        expect(manager.name).toEqual("Giana Raa");
         expect(manager.id).toEqual(expect.any(Number));
         expect(manager.email).toEqual(expect.any(String));
         expect(manager.officeNumber).toEqual(expect.any(Number));
@@ -19,7 +19,7 @@ describe("getName", () =>{
 
         const manager = new Manager("Giana Raa", 123, 'giana@gmail.com',123);
 
-        expect(manager.getName()).toEqual('Giana Raa');
+        expect(manager.getName()).toEqual("Giana Raa");
     });
 });
 
